@@ -1,0 +1,29 @@
+{
+  "name": "eip-7702-smart-account",
+  "version": "1.0.0",
+  "description": "EIP-7702 Smart Account Implementation",
+  "main": "scripts/eip7702-standard-batch.js",
+  "scripts": {
+    "deploy": "./deploy.sh",
+    "hex": "node scripts/eip7702-hex-batch.js",
+    "standard": "node scripts/eip7702-standard-batch.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "dotenv": "^17.2.1",
+    "viem": "^2.0.0"
+  },
+  "keywords": [
+    "ethereum",
+    "eip-7702",
+    "smart-account",
+    "batch-transactions",
+    "account-abstraction"
+  ],
+  "author": "oxmoei",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oxoxmoei/eip-7702-smart-account.git"
+  }
+}

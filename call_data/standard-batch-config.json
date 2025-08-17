@@ -1,0 +1,52 @@
+{
+  "transactions": [
+    {
+      "target": "0xdc99177c4f59394a1703040c2ed23967f604b91c",
+      "value": "1000000000000000",
+      "data": "0x",
+      "description": "向地址1发送0.001 ETH"
+    },
+    {
+      "target": "0x144eca70d0effe4f13a0d9eba7a23c77885a44f3",
+      "value": "2000000000000000",
+      "data": "0x",
+      "description": "向地址2发送0.002 ETH"
+    },
+    {
+      "target": "0x679F35017C5Db9C4DF16C65882bb4bAC4C2E92e1",
+      "value": "0",
+      "abi": {
+        "name": "approve",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "spender",
+            "type": "address"
+          },
+          {
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "nonpayable"
+      },
+      "params": [
+        "0xb5c56d5a06a51271523247153b64afacd583a64a",
+        "1000000000000000000000"
+      ],
+      "description": "ERC20代币授权调用（使用ABI）"
+    }
+  ],
+  "settings": {
+    "maxSingleTransactionValue": "1000000000000000000",
+    "maxBatchTotalValue": "5000000000000000000",
+    "enableAddressWhitelist": false,
+    "allowedTargets": []
+  }
+}

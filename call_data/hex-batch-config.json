@@ -1,0 +1,31 @@
+{
+  "transactions": [
+    {
+      "target": "0xdc99177c4f59394a1703040c2ed23967f604b91c",
+      "value": "1000000000000000",
+      "hexData": "0x",
+      "isContractCall": false,
+      "description": "向地址1发送0.001 ETH"
+    },
+    {
+      "target": "0x144eca70d0effe4f13a0d9eba7a23c77885a44f3",
+      "value": "2000000000000000",
+      "hexData": "0x",
+      "isContractCall": false,
+      "description": "向地址2发送0.002 ETH"
+    },
+    {
+      "target": "0x679F35017C5Db9C4DF16C65882bb4bAC4C2E92e1",
+      "value": "0",
+      "hexData": "0x095ea7b3000000000000000000000000b5c56d5a06a51271523247153b64afacd583a64a000000000000000000000000000000000000000000000000d3c21bcecceda0000000",
+      "isContractCall": true,
+      "description": "授权"
+    }
+  ],
+  "settings": {
+    "maxSingleTransactionValue": "1000000000000000000",
+    "maxBatchTotalValue": "5000000000000000000",
+    "enableAddressWhitelist": false,
+    "allowedTargets": []
+  }
+}
