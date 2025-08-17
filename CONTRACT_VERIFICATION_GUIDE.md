@@ -64,49 +64,49 @@
 
 **Ethereum 系列网络（主网、Sepolia、Optimism）：**
 ```bash
-forge verify-contract <合约地址> src/EIP7702SmartAccount.sol:EIP7702SmartAccount \
+forge verify-contract <合约地址> contract/SendBatchTransactions.sol:SendBatchTransactions \
     --etherscan-api-key <您的API_KEY> \
     --chain-id <网络ID>
 ```
 
 **Base 网络：**
 ```bash
-forge verify-contract <合约地址> src/EIP7702SmartAccount.sol:EIP7702SmartAccount \
+forge verify-contract <合约地址> contract/SendBatchTransactions.sol:SendBatchTransactions \
     --etherscan-api-key <您的API_KEY> \
     --chain-id <网络ID>
 ```
 
 **Arbitrum 网络：**
 ```bash
-forge verify-contract <合约地址> src/EIP7702SmartAccount.sol:EIP7702SmartAccount \
+forge verify-contract <合约地址> contract/SendBatchTransactions.sol:SendBatchTransactions \
     --arbiscan-api-key <您的API_KEY> \
     --chain-id <网络ID>
 ```
 
 **Polygon 网络：**
 ```bash
-forge verify-contract <合约地址> src/EIP7702SmartAccount.sol:EIP7702SmartAccount \
+forge verify-contract <合约地址> contract/SendBatchTransactions.sol:SendBatchTransactions \
     --polygonscan-api-key <您的API_KEY> \
     --chain-id <网络ID>
 ```
 
 **BSC 网络：**
 ```bash
-forge verify-contract <合约地址> src/EIP7702SmartAccount.sol:EIP7702SmartAccount \
+forge verify-contract <合约地址> contract/SendBatchTransactions.sol:SendBatchTransactions \
     --bscscan-api-key <您的API_KEY> \
     --chain-id <网络ID>
 ```
 
 **Avalanche 网络：**
 ```bash
-forge verify-contract <合约地址> src/EIP7702SmartAccount.sol:EIP7702SmartAccount \
+forge verify-contract <合约地址> contract/SendBatchTransactions.sol:SendBatchTransactions \
     --snowtrace-api-key <您的API_KEY> \
     --chain-id <网络ID>
 ```
 
 **Fantom 网络：**
 ```bash
-forge verify-contract <合约地址> src/EIP7702SmartAccount.sol:EIP7702SmartAccount \
+forge verify-contract <合约地址> contract/SendBatchTransactions.sol:SendBatchTransactions \
     --ftmscan-api-key <您的API_KEY> \
     --chain-id <网络ID>
 ```

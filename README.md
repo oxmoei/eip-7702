@@ -39,11 +39,11 @@ EIP-7702 允许普通 EOA（Externally Owned Account）临时升级为智能账�
 
 ```
 eip-7702/
+├── contract/
+│   └── SendBatchTransactions.sol      # 核心智能账户合约
 ├── src/
-│   └── EIP7702SmartAccount.sol        # 核心智能账户合约
-├── scripts/
-│   ├── eip7702-standard-batch.js      # 标准批量交易脚本
-│   └── eip7702-hex-batch.js           # Hex批量交易脚本
+│   ├── standard-batch.js              # 标准批量交易脚本
+│   └── hex-batch.js                   # Hex批量交易脚本
 ├── call_data/
 │   ├── standard-batch-config.json     # 标准批量交易配置
 │   ├── hex-batch-config.json          # Hex批量交易配置
@@ -68,7 +68,7 @@ eip-7702/
 ## 🚀 快速开始
 
 ### 1. 克隆仓库并进入项目目录
-ℹ️ 执行以下命令前，确保已安装了 `git`
+⚠️ 执行以下命令前，请确保已安装了 `git`
 ```
 git clone https://github.com/oxmoei/eip-7702.git && cd eip-7702
 ```
@@ -80,7 +80,7 @@ chmod +x install.sh && ./install.sh
 ```
 
 - **Windows 用户：**
-以管理员身份启动 PowerShell，执行以下命令
+以管理员身份启动 PowerShell，然后执行以下命令
 ```powershell
 .\install.ps1
 ```
@@ -98,10 +98,10 @@ chmod +x deploy.sh && ./deploy.sh
 ### 4. 执行批量交易
 ```bash
 # 执行标准批量交易
-node scripts/eip7702-standard-batch.js
+node src/standard-batch.js
 
 # 执行 Hex 批量交易
-node scripts/eip7702-hex-batch.js
+node src/hex-batch.js
 ```
 
 ## 📦 依赖项
@@ -170,7 +170,7 @@ node scripts/eip7702-hex-batch.js
 #### 2. 执行交易
 
 ```bash
-node scripts/eip7702-standard-batch.js
+node src/standard-batch.js
 ```
 
 ### 🔴 Hex 批量交易
@@ -209,14 +209,14 @@ node scripts/eip7702-standard-batch.js
 #### 2. 执行交易
 
 ```bash
-node scripts/eip7702-hex-batch.js
+node src/hex-batch.js
 ```
 
 详细配置说明请参考：
 - [标准批量交易配置指南](call_data/STANDARD_BATCH_CONFIG_GUIDE.md)
 - [Hex 批量交易配置指南](call_data/HEX_BATCH_CONFIG_GUIDE.md)
 
-## 🔒 安全特性
+## 🛡️ 安全特性
 
 - **私钥安全** - 通过环境变量管理，不在代码中硬编码
 - **地址验证** - 支持白名单机制，防止意外转账
@@ -224,19 +224,6 @@ node scripts/eip7702-hex-batch.js
 - **错误处理** - 完整的错误回滚和异常处理
 - **测试网络** - 建议先在测试网络上验证
 - **Gas 优化** - 自动 Gas 估算和策略选择
-
-## 📋 可用命令
-
-```bash
-# 部署合约
-npm run deploy
-
-# 执行标准批量交易
-npm run standard
-
-# 执行 Hex 批量交易
-npm run hex
-```
 
 ## 🐛 故障排除
 

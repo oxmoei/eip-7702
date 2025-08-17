@@ -204,14 +204,14 @@ fi
 echo -e "\033[1;32m✅ 开发环境检查通过\033[0m"
 
 # 检查合约文件是否存在
-if [ ! -f "src/EIP7702SmartAccount.sol" ]; then
+if [ ! -f "contract/SendBatchTransactions.sol" ]; then
     echo ""
     echo "╔══════════════════════════════════════════════════════════════╗"
     echo "║                        ❌ 文件错误 ❌                        ║"
     echo "╚══════════════════════════════════════════════════════════════╝"
     echo ""
     echo "📝 错误详情: 合约文件不存在"
-    echo "💡 解决方案: 请确保 src/EIP7702SmartAccount.sol 文件存在"
+    echo "💡 解决方案: 请确保 contract/SendBatchTransactions.sol 文件存在"
     echo ""
     exit 1
 fi
@@ -245,7 +245,7 @@ echo ""
 echo -e "\033[1;35m※※※※※※※※※※※※\033[0m\033[1;45m🚀 开始部署合约\033[0m\033[1;35m※※※※※※※※※※※※\033[0m"
 
 # 设置部署命令
-DEPLOY_CMD="forge create src/EIP7702SmartAccount.sol:EIP7702SmartAccount --rpc-url $RPC_URL --private-key $PRIVATE_KEY --broadcast"
+DEPLOY_CMD="forge create contract/SendBatchTransactions.sol:SendBatchTransactions --rpc-url $RPC_URL --private-key $PRIVATE_KEY --broadcast"
 
 echo -e "\033[1;36m📋 执行部署命令:\033[0m"
 echo -e "\033[1;34m┌─────────────────────────────────────────────────────────────┐\033[0m"
@@ -336,7 +336,8 @@ cat > deployment-info.txt << EOF
 🔑 私钥: ${PRIVATE_KEY:0:10}...
 
 🚀 使用说明:
-运行 Hex 批量交易: node scripts/eip7702-hex-batch.js
+- 运行标准批量交易: node src/standard-batch.js
+- 运行 Hex 批量交易: node src/hex-batch.js
 
 
 🔗 区块浏览器链接:
@@ -345,7 +346,6 @@ $SCAN_URL/address/$CONTRACT_ADDRESS
 ✨ 合约功能:
 - EIP-7702 标准批量交易
 - Hex 批量交易
-- ERC20 批量转账
 - 单笔交易执行
 
 🌍 支持的 EVM 网络:

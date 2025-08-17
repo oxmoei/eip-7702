@@ -1,12 +1,12 @@
 {
-  "name": "eip-7702-smart-account",
+  "name": "EIP-7702 SendBatchTransactions",
   "version": "1.0.0",
-  "description": "EIP-7702 Smart Account Implementation",
-  "main": "scripts/eip7702-standard-batch.js",
+  "description": "EIP-7702 SendBatchTransactions",
+  "main": "src/standard-batch.js",
   "scripts": {
     "deploy": "./deploy.sh",
-    "hex": "node scripts/eip7702-hex-batch.js",
-    "standard": "node scripts/eip7702-standard-batch.js"
+    "hex": "node src/hex-batch.js",
+    "standard": "node src/standard-batch.js"
   },
   "dependencies": {
     "chalk": "^4.1.2",
