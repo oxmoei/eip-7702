@@ -1,5 +1,12 @@
 # EIP-7702 智能账户合约
-
+```
+     ███████╗██╗██████╗    ███████╗███████╗ ██████╗ ██████╗
+     ██╔════╝██║██╔══██╗   ╚════██║╚════██║██╔═████╗╚════██╗
+     █████╗  ██║██████╔╝█████╗ ██╔╝    ██╔╝██║██╔██║ █████╔╝
+     ██╔══╝  ██║██╔═══╝ ╚════╝██╔╝    ██╔╝ ████╔╝██║██╔═══╝
+     ███████╗██║██║           ██║     ██║  ╚██████╔╝███████╗
+     ╚══════╝╚═╝╚═╝           ╚═╝     ╚═╝   ╚═════╝ ╚══════╝
+```
 一个完整的 EIP-7702 智能账户实现，支持 EOA 临时升级为智能账户并执行批量交易，包括标准批量交易和自定义hex数据批量交易功能。
 
 ## 🎯 项目概述
@@ -52,78 +59,49 @@ eip-7702/
 └── README.md                          # 项目说明
 ```
 
+## 🖥️ 支持系统
+
+- ![Windows](https://img.shields.io/badge/-Windows-0078D6?logo=windows&logoColor=white)
+- ![macOS](https://img.shields.io/badge/-macOS-000000?logo=apple&logoColor=white)
+- ![Linux](https://img.shields.io/badge/-Linux-FCC624?logo=linux&logoColor=black)
+
 ## 🚀 快速开始
 
-### 1. 环境准备
+### 1. 克隆仓库并进入项目目录
+ℹ️ 执行以下命令前，确保已安装了 `git`
+```
+git clone https://github.com/oxmoei/eip-7702.git && cd eip-7702
+```
+### 2. 环境准备/安装依赖
 
+- **Linux/WSL/macOS 用户：**
 ```bash
-# 安装 Foundry
-curl -L https://foundry.paradigm.xyz | bash
-foundryup
-
-# 安装 Foundry 依赖
-forge install
-
-# 安装 Node.js 依赖
-npm install
+chmod +x install.sh && ./install.sh
 ```
 
-### 2. 环境配置
-
-创建 `.env` 文件并配置以下环境变量：
-
-**注意**: 请确保将 `PRIVATE_KEY` 替换为您的实际私钥，将 `RPC_URL` 替换为您的实际 RPC 端点地址。
-
-```env
-# 基础配置
-PRIVATE_KEY=0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
-RPC_URL=https://bsc-testnet.infura.io/v3/YOUR_INFURA_PROJECT_ID
-
-# 实现合约地址（运行 deploy.sh 后会自动添加）
-SMART_ACCOUNT_ADDRESS=
-
-# 功能开关
-ENABLE_STANDARD_BATCH=true
-ENABLE_HEX_BATCH=true
-
-# Gas 配置
-GAS_LIMIT=300000
-GAS_PRICE_STRATEGY=auto
-TRANSACTION_TIMEOUT=300
-MAX_RETRIES=3
-
-# 交易限制
-MAX_SINGLE_TRANSACTION_VALUE=1000000000000000000
-MAX_BATCH_TOTAL_VALUE=5000000000000000000
-
-# 安全配置
-ENABLE_ADDRESS_WHITELIST=false
-ALLOWED_TARGETS=
-
-# 配置文件路径
-STANDARD_BATCH_CONFIG_FILE=call_data/standard-batch-config.json
-HEX_BATCH_CONFIG_FILE=call_data/hex-batch-config.json
-
-# 日志配置
-LOG_LEVEL=info
+- **Windows 用户：**
+以管理员身份启动 PowerShell，执行以下命令
+```powershell
+.\install.ps1
 ```
 
-### 3. 部署合约
+### 3. 配置环境变量
+编辑 `.env` ，根据提示填写各项配置
+
+### 4. 部署合约
 
 ```bash
 # 运行部署脚本
-chmod +x deploy.sh
-./deploy.sh
+chmod +x deploy.sh && ./deploy.sh
 ```
 
 ### 4. 执行批量交易
-
 ```bash
 # 执行标准批量交易
-npm run standard
+node scripts/eip7702-standard-batch.js
 
 # 执行 Hex 批量交易
-npm run hex
+node scripts/eip7702-hex-batch.js
 ```
 
 ## 📦 依赖项
@@ -137,7 +115,7 @@ npm run hex
 - `dotenv` - 环境变量管理
 - `chalk` - 终端颜色输出
 
-## 🔧 核心合约
+## 📋 核心合约
 
 ### EIP7702SmartAccount.sol
 
@@ -192,7 +170,7 @@ npm run hex
 #### 2. 执行交易
 
 ```bash
-npm run standard
+node scripts/eip7702-standard-batch.js
 ```
 
 ### 🔴 Hex 批量交易
@@ -231,7 +209,7 @@ npm run standard
 #### 2. 执行交易
 
 ```bash
-npm run hex
+node scripts/eip7702-hex-batch.js
 ```
 
 详细配置说明请参考：
