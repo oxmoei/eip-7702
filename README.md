@@ -76,7 +76,7 @@ git clone https://github.com/oxmoei/eip-7702.git && cd eip-7702
 
 - **Linux/WSL/macOS 用户：**
 ```bash
-chmod +x install.sh && ./install.sh
+./install.sh
 ```
 
 - **Windows 用户：**
@@ -92,7 +92,7 @@ chmod +x install.sh && ./install.sh
 
 ```bash
 # 运行部署脚本
-chmod +x deploy.sh && ./deploy.sh
+./deploy.sh
 ```
 
 ### 4. 执行批量交易

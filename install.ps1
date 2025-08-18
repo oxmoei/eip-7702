@@ -5,6 +5,35 @@ Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
 $OS_TYPE = $PSVersionTable.OS
 Write-Output "Detected operating system: $OS_TYPE"
 
+<#
+.SYNOPSIS
+    Reloads environment variables to ensure newly installed tools are available.
+.DESCRIPTION
+    This function refreshes the PowerShell environment by reloading the profile,
+    updating PATH from registry, and using Chocolatey's refreshenv if available.
+#>
+function Update-Environment {
+    [CmdletBinding()]
+    param()
+    
+    Write-Output "Reloading environment variables..."
+    
+    # Refresh environment using Chocolatey's refreshenv if available
+    if (Get-Command refreshenv -ErrorAction SilentlyContinue) {
+        refreshenv
+    }
+    
+    # Reload PowerShell profile
+    if (Test-Path $PROFILE) {
+        . $PROFILE
+    }
+    
+    # Update PATH from registry for current session
+    $machinePath = [System.Environment]::GetEnvironmentVariable("PATH", "Machine")
+    $userPath = [System.Environment]::GetEnvironmentVariable("PATH", "User")
+    $env:PATH = "$machinePath;$userPath"
+}
+
 # Check package manager and install required packages
 function Install-Dependencies {
     if ($OS_TYPE -like "*Windows*") {
@@ -43,8 +72,19 @@ if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
     # Install Node.js using Chocolatey
     if (Get-Command choco -ErrorAction SilentlyContinue) {
         choco install nodejs-lts -y
-        refreshenv
-        Write-Output "Node.js has been installed via Chocolatey."
+        
+        # Reload environment after installation
+        Update-Environment
+        
+        # Verify Node.js installation
+        if (Get-Command node -ErrorAction SilentlyContinue) {
+            Write-Output "✅ Node.js has been successfully installed and is available"
+            node --version
+            npm --version
+        }
+        else {
+            Write-Output "❌ Node.js installation may have failed, please check manually"
+        }
     }
     else {
         Write-Output "Package manager not found, please install Node.js manually."
@@ -66,15 +106,22 @@ if (-not (Get-Command forge -ErrorAction SilentlyContinue)) {
         Invoke-Expression $foundryScript.Content
         
         # Reload environment variables
-        refreshenv
+        Update-Environment
         
         # Install Foundry toolchain
         if (Get-Command foundryup -ErrorAction SilentlyContinue) {
             foundryup
-            refreshenv
+            Update-Environment
         }
         
-        Write-Output "Foundry installation completed."
+        # Verify Foundry installation
+        if (Get-Command forge -ErrorAction SilentlyContinue) {
+            Write-Output "✅ Foundry has been successfully installed and is available"
+            forge --version
+        }
+        else {
+            Write-Output "❌ Foundry installation may have failed, please check manually"
+        }
     }
     catch {
         Write-Output "Error occurred during Foundry installation, please check manually."
@@ -148,4 +195,33 @@ try {
 catch {
     Write-Output "Remote script execution failed."
     exit 1
+}
+
+# Final verification of installed tools
+Write-Output ""
+Write-Output "=== Installation Completion Check ==="
+
+# Check Node.js
+if (Get-Command node -ErrorAction SilentlyContinue) {
+    Write-Output "✅ Node.js is successfully installed and available"
+    node --version
+    npm --version
+}
+else {
+    Write-Output "❌ Node.js is not available, please install Node.js manually:"
+    Write-Output "   choco install nodejs-lts -y"
+    Write-Output "   Then reload your environment"
+}
+
+Write-Output ""
+
+# Check Foundry
+if (Get-Command forge -ErrorAction SilentlyContinue) {
+    Write-Output "✅ Foundry is successfully installed and available"
+    forge --version
+}
+else {
+    Write-Output "❌ Foundry is not available, please install Foundry manually:"
+    Write-Output "   Invoke-WebRequest -Uri https://foundry.paradigm.xyz | Invoke-Expression"
+    Write-Output "   Then reload your environment"
 }
