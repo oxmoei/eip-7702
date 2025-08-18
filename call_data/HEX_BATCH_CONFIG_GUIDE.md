@@ -55,18 +55,18 @@ Hex 批量交易现在支持从 JSON 文件加载配置，这样可以避免在 
 {
   "transactions": [
     {
-      "target": "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6",
-      "value": "1000000000000000000",
+      "target": "0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a",
+      "value": "100000000000000000",
       "hexData": "0x",
       "isContractCall": false,
-      "description": "向地址1发送1 ETH"
+      "description": "向地址发送0.1ETH"
     },
     {
-      "target": "0xcb98643b8786950F0461f3B0edf99D88F274574D",
-      "value": "2000000000000000000",
+      "target": "0x9d5befd138960ddf0dc4368a036bfad420e306ef",
+      "value": "200000000000000000",
       "hexData": "0x",
       "isContractCall": false,
-      "description": "向地址2发送2 ETH"
+      "description": "向地址2发送0.2ETH"
     }
   ],
   "settings": {
@@ -84,16 +84,16 @@ Hex 批量交易现在支持从 JSON 文件加载配置，这样可以避免在 
 {
   "transactions": [
     {
-      "target": "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6",
-      "value": "1000000000000000000",
+      "target": "0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a",
+      "value": "100000000000000000",
       "hexData": "0x",
       "isContractCall": false,
       "description": "ETH 转账"
     },
     {
-      "target": "0xA0b86a33E6441b8c4C8C8C8C8C8C8C8C8C8C8C8C",
+      "target": "0xdac17f958d2ee523a2206206994597c13d831ec7",
       "value": "0",
-      "hexData": "0xa9059cbb000000000000000000000000cb98643b8786950F0461f3B0edf99D88F274574D000000000000000000000000000000000000000000000000d3c21bcecceda0000000",
+      "hexData": "0xa9059cbb0000000000000000000000009d5befd138960ddf0dc4368a036bfad420e306ef000000000000000000000000000000000000000000000000d3c21bcecceda0000000",
       "isContractCall": true,
       "description": "ERC20 代币转账"
     }
@@ -103,8 +103,8 @@ Hex 批量交易现在支持从 JSON 文件加载配置，这样可以避免在 
     "maxBatchTotalValue": "5000000000000000000",
     "enableAddressWhitelist": true,
     "allowedTargets": [
-      "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6",
-      "0xA0b86a33E6441b8c4C8C8C8C8C8C8C8C8C8C8C8C"
+      "0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a",
+      "0x9d5befd138960ddf0dc4368a036bfad420e306ef"
     ]
   }
 }
@@ -116,18 +116,18 @@ Hex 批量交易现在支持从 JSON 文件加载配置，这样可以避免在 
 {
   "transactions": [
     {
-      "target": "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6",
+      "target": "0xdac17f958d2ee523a2206206994597c13d831ec7",
       "value": "0",
-      "hexData": "0x095ea7b3000000000000000000000000b5c56d5a06a51271523247153b64afacd583a64a000000000000000000000000000000000000000000000000d3c21bcecceda0000000",
+      "hexData": "0x095ea7b30000000000000000000000009d5befd138960ddf0dc4368a036bfad420e306ef000000000000000000000000000000000000000000000000d3c21bcecceda0000000",
       "isContractCall": true,
-      "description": "授权 USDC 代币"
+      "description": "授权 USDT 代币"
     },
     {
-      "target": "0xA0b86a33E6441b8c4C8C8C8C8C8C8C8C8C8C8C8C",
+      "target": "0xdac17f958d2ee523a2206206994597c13d831ec7",
       "value": "0",
       "hexData": "0x23b872dd000000000000000000000000742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6000000000000000000000000cb98643b8786950F0461f3B0edf99D88F274574D000000000000000000000000000000000000000000000000d3c21bcecceda0000000",
       "isContractCall": true,
-      "description": "转移 USDC 代币"
+      "description": "转移 USDT 代币"
     }
   ],
   "settings": {
@@ -135,8 +135,8 @@ Hex 批量交易现在支持从 JSON 文件加载配置，这样可以避免在 
     "maxBatchTotalValue": "0",
     "enableAddressWhitelist": true,
     "allowedTargets": [
-      "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6",
-      "0xA0b86a33E6441b8c4C8C8C8C8C8C8C8C8C8C8C8C"
+      "0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a",
+      "0x9d5befd138960ddf0dc4368a036bfad420e306ef"
     ]
   }
 }

@@ -78,16 +78,16 @@ ALLOWED_TARGETS=0x1234...,0x5678...
 {
   "transactions": [
     {
-      "target": "0xcb98643b8786950F0461f3B0edf99D88F274574D",
-      "value": "1000000000000000",
+      "target": "0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a",
+      "value": "100000000000000000",
       "data": "0x",
-      "description": "向地址1发送0.001 ETH"
+      "description": "向地址0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a发送0.1ETH"
     },
     {
-      "target": "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6",
-      "value": "2000000000000000",
+      "target": "0x9d5befd138960ddf0dc4368a036bfad420e306ef",
+      "value": "200000000000000000",
       "data": "0x",
-      "description": "向地址2发送0.002 ETH"
+      "description": "向地址0x9d5befd138960ddf0dc4368a036bfad420e306ef发送0.2ETH"
     }
   ],
   "settings": {
@@ -105,7 +105,7 @@ ALLOWED_TARGETS=0x1234...,0x5678...
 {
   "transactions": [
     {
-      "target": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "target": "0xdac17f958d2ee523a2206206994597c13d831ec7",
       "value": "0",
       "abi": {
         "name": "approve",
@@ -129,13 +129,13 @@ ALLOWED_TARGETS=0x1234...,0x5678...
         "stateMutability": "nonpayable"
       },
       "params": [
-        "0xb5c56d5a06a51271523247153b64afacd583a64a",
+        "0x9d5befd138960ddf0dc4368a036bfad420e306ef",
         "1000000000000000000000"
       ],
-      "description": "DAI 代币授权"
+      "description": "USDT 代币授权"
     },
     {
-      "target": "0xA0b86a33E6441b8C4C8C8C8C8C8C8C8C8C8C8C8",
+      "target": "0xdac17f958d2ee523a2206206994597c13d831ec7",
       "value": "0",
       "abi": {
         "name": "transfer",
@@ -159,10 +159,10 @@ ALLOWED_TARGETS=0x1234...,0x5678...
         "stateMutability": "nonpayable"
       },
       "params": [
-        "0xcb98643b8786950F0461f3B0edf99D88F274574D",
-        "100"
+        "0x9d5befd138960ddf0dc4368a036bfad420e306ef",
+        "1000000"
       ],
-      "description": "ERC20 代币转账"
+      "description": "USDT 代币转账"
     }
   ],
   "settings": {
@@ -180,13 +180,13 @@ ALLOWED_TARGETS=0x1234...,0x5678...
 {
   "transactions": [
     {
-      "target": "0xcb98643b8786950F0461f3B0edf99D88F274574D",
-      "value": "1000000000000000",
+      "target": "0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a",
+      "value": "100000000000000000",
       "data": "0x",
       "description": "ETH 转账"
     },
     {
-      "target": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "target": "0xdac17f958d2ee523a2206206994597c13d831ec7",
       "value": "0",
       "abi": {
         "name": "approve",
@@ -210,13 +210,13 @@ ALLOWED_TARGETS=0x1234...,0x5678...
         "stateMutability": "nonpayable"
       },
       "params": [
-        "0xb5c56d5a06a51271523247153b64afacd583a64a",
+        "0x9d5befd138960ddf0dc4368a036bfad420e306ef",
         "1000000000000000000000"
       ],
       "description": "代币授权（使用ABI）"
     },
     {
-      "target": "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6",
+      "target": "0x9d5befd138960ddf0dc4368a036bfad420e306ef",
       "value": "500000000000000",
       "data": "0x",
       "description": "另一个 ETH 转账"
@@ -237,20 +237,20 @@ ALLOWED_TARGETS=0x1234...,0x5678...
 {
   "transactions": [
     {
-      "target": "0xcb98643b8786950F0461f3B0edf99D88F274574D",
-      "value": "1000000000000000",
+      "target": "0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a",
+      "value": "100000000000000000",
       "data": "0x",
       "description": "ETH 转账"
     },
     {
-      "target": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "target": "0xdac17f958d2ee523a2206206994597c13d831ec7",
       "value": "0",
-      "data": "0x095ea7b3000000000000000000000000b5c56d5a06a51271523247153b64afacd583a64a000000000000000000000000000000000000000000000000d3c21bcecceda0000000",
+      "data": "0x095ea7b30000000000000000000000009d5befd138960ddf0dc4368a036bfad420e306ef000000000000000000000000000000000000000000000000d3c21bcecceda0000000",
       "description": "代币授权"
     },
     {
-      "target": "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6",
-      "value": "500000000000000",
+      "target": "0x9d5befd138960ddf0dc4368a036bfad420e306ef",
+      "value": "5000000000000000",
       "data": "0x",
       "description": "另一个 ETH 转账"
     }
@@ -270,7 +270,7 @@ ALLOWED_TARGETS=0x1234...,0x5678...
 
 ```bash
 # 直接执行
-node scripts/eip7702-standard-batch.js
+node src/standard-batch.js
 
 # 或者使用 npm 脚本（如果已配置）
 npm run standard
@@ -302,8 +302,8 @@ npm run standard
   "settings": {
     "enableAddressWhitelist": true,
     "allowedTargets": [
-      "0xcb98643b8786950F0461f3B0edf99D88F274574D",
-      "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6"
+      "0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a",
+      "0x9d5befd138960ddf0dc4368a036bfad420e306ef"
     ]
   }
 }

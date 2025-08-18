@@ -5,11 +5,11 @@ import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import "@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol";
 
 /**
- * @title EIP7702SmartAccount
+ * @title SendBatchTransactions
  * @notice Self-contained EIP-7702 smart account with batch functionality
  * @dev This contract handles both EIP-7702 upgrade and batch execution
  */
-contract EIP7702SmartAccount {
+contract SendBatchTransactions {
     using ECDSA for bytes32;
 
     /// @notice Authorization structure for EIP-7702
