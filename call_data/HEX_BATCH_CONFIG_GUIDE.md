@@ -164,7 +164,7 @@ HEX_BATCH_CONFIG_FILE=call_data/hex-batch-config.json
 
 ```bash
 # 直接执行
-node scripts/eip7702-hex-batch.js
+node src/hex-batch.js
 
 # 或者使用 npm 脚本（如果已配置）
 npm run hex

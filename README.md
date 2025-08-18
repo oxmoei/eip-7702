@@ -146,16 +146,70 @@ node src/hex-batch.js
 {
   "transactions": [
     {
-      "to": "0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a",
-      "value": "1000000000000000",
+      "target": "0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a",
+      "value": "100000000000000000",
       "data": "0x",
-      "description": "向地址1发送0.001 ETH"
+      "description": "向地址0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a发送0.1ETH"
     },
     {
-      "to": "0x9d5befd138960ddf0dc4368a036bfad420e306ef",
+      "target": "0xdac17f958d2ee523a2206206994597c13d831ec7",
       "value": "0",
-      "data": "0xa9059cbb000000000000000000000000cb98643b8786950F0461f3B0edf99D88F274574D0000000000000000000000000000000000000000000000000000000000000064",
-      "description": "ERC20代币转账调用"
+      "abi": {
+        "name": "transfer",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "nonpayable"
+      },
+      "params": [
+        "0x9d5befd138960ddf0dc4368a036bfad420e306ef",
+        "1000000"
+      ],
+      "description": "将1代币（合约：0xdac17f958d2ee523a2206206994597c13d831ec7）转账给地址0x9d5befd138960ddf0dc4368a036bfad420e306ef"
+    },
+    {
+      "target": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "value": "0",
+      "abi": {
+        "name": "approve",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "spender",
+            "type": "address"
+          },
+          {
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "nonpayable"
+      },
+      "params": [
+        "0x9d5befd138960ddf0dc4368a036bfad420e306ef",
+        "1000000000000000000000"
+      ],
+      "description": "将代币0xdac17f958d2ee523a2206206994597c13d831ec7授权给地址0x9d5befd138960ddf0dc4368a036bfad420e306ef"
     }
   ],
   "settings": {
@@ -171,6 +225,8 @@ node src/hex-batch.js
 
 ```bash
 node src/standard-batch.js
+# 或者
+npm run standard
 ```
 
 ### 🔴 Hex 批量交易
@@ -183,19 +239,26 @@ node src/standard-batch.js
 {
   "transactions": [
     {
-      "target": "0xcb98643b8786950F0461f3B0edf99D88F274574D",
-      "value": "1000000000000000",
+      "target": "0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a",
+      "value": "100000000000000000",
       "hexData": "0x",
       "isContractCall": false,
-      "description": "向地址1发送0.001 ETH"
+      "description": "向地址0xd9c5d6111983ea3692f1d29bec4ac7d6f723217a发送0.1ETH"
     },
     {
-      "target": "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6",
+      "target": "0xdac17f958d2ee523a2206206994597c13d831ec7",
       "value": "0",
-      "hexData": "0xa9059cbb000000000000000000000000cb98643b8786950F0461f3B0edf99D88F274574D0000000000000000000000000000000000000000000000000000000000000064",
+      "hexData": "0xa9059cbb0000000000000000000000009d5befd138960ddf0dc4368a036bfad420e306e00000000000000000000000000000000000000000000000000000000000f4240",
       "isContractCall": true,
-      "description": "ERC20代币转账调用"
-    }
+      "description": "将1代币（合约：0xdac17f958d2ee523a2206206994597c13d831ec7）转账给地址0x9d5befd138960ddf0dc4368a036bfad420e306ef"
+    },
+    {
+      "target": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "value": "0",
+      "hexData": "0x095ea7b30000000000000000000000009d5befd138960ddf0dc4368a036bfad420e306ef000000000000000000000000000000000000000000000000d3c21bcecceda0000000",
+      "isContractCall": true,
+      "description": "将代币0xdac17f958d2ee523a2206206994597c13d831ec7授权给地址0x9d5befd138960ddf0dc4368a036bfad420e306ef"
+    } 
   ],
   "settings": {
     "maxSingleTransactionValue": "1000000000000000000",
@@ -210,6 +273,8 @@ node src/standard-batch.js
 
 ```bash
 node src/hex-batch.js
+# 或者
+npm run hex
 ```
 
 详细配置说明请参考：
